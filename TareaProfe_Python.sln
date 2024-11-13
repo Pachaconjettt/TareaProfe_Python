@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TareaProfe_Python", "TareaProfe_Python\TareaProfe_Python.pyproj", "{F9102DF1-E64E-4FFE-8709-D505F8FA3E9B}"
 EndProject
