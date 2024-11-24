@@ -87,5 +87,73 @@ else:
         print("Aprobado")
 if precio1 == precio2:
     print("Son iguales...")
-print(precio1 > precio2)
-print
+print(precio1 > precio2) #Resultado False
+print("\n")
+print(precio1 < precio2) #Resultado True
+print("\n")
+print(precio1 >= precio2) #Resultado False
+print("\n")
+print(precio1 <= precio2) #Resultado True
+print("\n")
+print(precio1 == precio2 )#Resultado False
+print("\n")
+print(precio1 != precio2 )#Resultado True 
+print("\n")
+
+print((7 > 3 ) and (7 > 1))#True 
+print("\n")
+print((7 > 3) and (7 > 9))#False
+print("\n")
+print((7 > 3) or (7 > 1))#True
+print("\n")
+print((7 > 3) or (7 > 9))#True
+print("\n")
+print((7 > 3) or (7 > 9))#True
+print("\n")
+print((7 > 11) or (7 > 13)) #True 
+print("\n")
+print(not(7 > 3))#False
+print("\n")
+print(not(1 > 3))#True
+print("\n")
+#Fifth exercise 
+salario = 0
+edad =  0
+nombre = ""
+
+valor1 = 4
+valor2 = 2
+ValorResult = 0
+nombre = "Efra"
+apellidos = "Retana-Segura"
+
+edad = int(input("Ingrese la edad: "))
+print("La edad es", edad)
+
+salario = float(input("Digite su salario: "))
+print("El salario es de: ", salario)
+
+nombre = input("Ingrese su nombre: ")
+print("El nombre es: ", nombre)
+
+ValorResult = valor1  + valor2 
+print("Valor resultante +: ", ValorResult)
+
+ValorResult = valor1 - valor2
+print("Valor resultante -: ", ValorResult)
+
+ValorResult = valor1 * valor2
+print("Valor resultante *: ", ValorResult)
+
+ValorResult = valor1 / valor2
+print("Valor resultante /: ", ValorResult)
+
+ValorResult = valor1 % valor2
+print("Valor resultante %: ", ValorResult)
+
+ValorResult = valor1 ** valor2 
+print("Valor resultante **: ", ValorResult)
+
+nombre = nombre + " " + apellidos 
+print("El nombre completo de Efra es : ", nombre)
+

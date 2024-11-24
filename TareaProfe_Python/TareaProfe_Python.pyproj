@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f9102df1-e64e-4ffe-8709-d505f8fa3e9b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Segunda Semana\Segunda_Semana.py</StartupFile>
+    <StartupFile>Tercera Semana\Tercera_Semana.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,12 +21,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Cuarta Semana\Cuarta_Semana.py" />
     <Compile Include="Primera Semana\TareaProfe_Python.py">
       <Publish>False</Publish>
     </Compile>
     <Compile Include="Segunda Semana\Segunda_Semana.py" />
+    <Compile Include="Tercera Semana\Tercera_Semana.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Cuarta Semana\" />
+    <Folder Include="Tercera Semana\" />
     <Folder Include="Segunda Semana\" />
     <Folder Include="Primera Semana\" />
   </ItemGroup>
