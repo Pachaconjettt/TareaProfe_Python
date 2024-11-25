@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f9102df1-e64e-4ffe-8709-d505f8fa3e9b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Tercera Semana\Tercera_Semana.py</StartupFile>
+    <StartupFile>Cuarta Semana\Cuarta_Semana.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cuarta Semana\" />
+    <Folder Include="Quinto Ejercicio\" />
     <Folder Include="Tercera Semana\" />
     <Folder Include="Segunda Semana\" />
     <Folder Include="Primera Semana\" />
