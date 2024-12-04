@@ -1,4 +1,5 @@
-import os
+﻿import os
+import numpy
 input("Bienvenido a la sexta semana de los ejercicios de JD....")
 os.system("cls")
 input("Toquee una tecla para empezar con los ejercicios.....")
@@ -114,5 +115,68 @@ while(cont <= 10):
 
 print("El valor de ac es de :", ac)
 
-input("\t\t Septimo Ejercicio \t\t\n")
+input("Toquee una tecla para continuar...")
+os.system("cls")
+
+print("\t\t Septimo Ejercicio \t\t\n")
+
+APROBACION = 70.0
+AMPLIACION = 60.0
+cont = 1
+suma = num_examenes = nota_examen = promedio = 0.0
+num_examenes = int(input("Por favor indique el numero de examenes del curso :"))
+
+while(cont <= num_examenes):
+    nota_examen = float(input("Por favor indique la nota del examen " + str(cont) + ": "))
+    suma += nota_examen
+    cont += 1
+promedio = suma / num_examenes
+
+if(promedio >= APROBACION):
+    print("¡¡¡El estudiante aprobo!!!")
+elif(promedio >= AMPLIACION):
+    print("El estudiante tiene derecho a una ampliacion.")
+else: 
+    print("El estudiante se quedo :V ")
+
+
+input("Toque una tecla para continuar..")
+os.system("cls")
+
+print("\t\t Octavo ejercicio \t\t\n")
+
+def cal_pop_fitness(equation_inputs, pop):
+    fitness = numpy.sum(pop * equation_inputs, axis = 1)
+    return fitness
+
+def select_mating_pool(pop,fitness,num_parents):
+    parents = numpy.empty((num_parents, pop.shape[1]))
+    for parents_num in range(num_parents):
+        max_fitness_idx = numpy.where(fitness == numpy.max(fitness))
+        max_fitness_idx = max_fitness_idx[0][0]
+        parents[parents_num, :] = pop[max_fitness_idx, :]
+        fitness[max_fitness_idx] = -99999999999
+    return parents
+
+def crossover(parents, offspring_size):
+    offspring = numpy.empty(offspring_size)
+    crossover_point = numpy.uint8(offspring_size[1]/2)
+
+    for k in range (offspring_size[0]):
+        parent1_idx = k%parents.shape[0]
+        parent2_idx = (k+1)%parents.shape[0]
+        offspring[k, 0:crossover_point] = parents[parent1_idx,0:crossover_point]
+        offspring[k, crossover_point:] = parents[parent2_idx, crossover_point:]
+    return offspring
+
+def mutation(offspring_crossover, num_mutations = 1):
+    mutations_counter = numpy.uint8(offspring_crossover.shape[1] / num_mutations)
+    for idx in range(offspring_crossover.shape[0]):
+        gene_idx = mutations_counter - 1
+        for mutation_num in range(num_mutations):
+            random_value = numpy.random.uniform(-1.0, 1.0, 1)
+            offspring_crossover[idx, gene_idx] = offspring_crossover[idx, gene_idx] + random_value
+            gene_idx = gene_idx + mutations_counter
+
+    return offspring_crossover
 
