@@ -1,5 +1,5 @@
 ﻿import os
-import numpy
+import numpy as np
 input("Bienvenido a la sexta semana de los ejercicios de JD....")
 os.system("cls")
 input("Toquee una tecla para empezar con los ejercicios.....")
@@ -146,21 +146,21 @@ os.system("cls")
 print("\t\t Octavo ejercicio \t\t\n")
 
 def cal_pop_fitness(equation_inputs, pop):
-    fitness = numpy.sum(pop * equation_inputs, axis = 1)
+    fitness = np.sum(pop * equation_inputs, axis = 1)
     return fitness
 
 def select_mating_pool(pop,fitness,num_parents):
-    parents = numpy.empty((num_parents, pop.shape[1]))
+    parents = np.empty((num_parents, pop.shape[1]))
     for parents_num in range(num_parents):
-        max_fitness_idx = numpy.where(fitness == numpy.max(fitness))
+        max_fitness_idx = np.where(fitness == np.max(fitness))
         max_fitness_idx = max_fitness_idx[0][0]
         parents[parents_num, :] = pop[max_fitness_idx, :]
         fitness[max_fitness_idx] = -99999999999
     return parents
 
 def crossover(parents, offspring_size):
-    offspring = numpy.empty(offspring_size)
-    crossover_point = numpy.uint8(offspring_size[1]/2)
+    offspring = np.empty(offspring_size)
+    crossover_point = np.uint8(offspring_size[1]/2)
 
     for k in range (offspring_size[0]):
         parent1_idx = k%parents.shape[0]
@@ -170,13 +170,51 @@ def crossover(parents, offspring_size):
     return offspring
 
 def mutation(offspring_crossover, num_mutations = 1):
-    mutations_counter = numpy.uint8(offspring_crossover.shape[1] / num_mutations)
+    mutations_counter = np.uint8(offspring_crossover.shape[1] / num_mutations)
     for idx in range(offspring_crossover.shape[0]):
         gene_idx = mutations_counter - 1
         for mutation_num in range(num_mutations):
-            random_value = numpy.random.uniform(-1.0, 1.0, 1)
+            random_value = np.random.uniform(-1.0, 1.0, 1)
             offspring_crossover[idx, gene_idx] = offspring_crossover[idx, gene_idx] + random_value
             gene_idx = gene_idx + mutations_counter
 
     return offspring_crossover
 
+def main():
+    equation_inputs = [4, -2, 3.5,5,-11,-4.7]
+    num_weights = len(equation_inputs)
+
+    sol_per_pop = 8
+    num_parents_mating = 4
+    num_generations = 5
+
+    pop_size = (sol_per_pop, num_weights)
+    new_population = np.random.uniform(low = -4.0, high = 4.0, size = pop_size)
+    print("Poblacion inicial :\n", new_population)
+
+    for generation in range(num_generations):
+        print(f"\nGeneracion {generation}")
+
+        fitness = cal_pop_fitness(equation_inputs, new_population)
+        print("Aptitud:\n", fitness)
+
+        parents = select_mating_pool(new_population, fitness, num_parents_mating)
+        print("Padres seleccionados:\n", parents)
+
+        offspring_crossover = crossover(parents, offspring_size=(pop_size[0] - parents.shape[0], num_weights))
+        print("Descendencia despues del cruce:\n", offspring_crossover)
+
+        offspring_mutation = mutation(offspring_crossover, num_mutations=2)
+        print("Descendencia despues de la mutacion:\n", offspring_mutation)
+
+        new_population[0:parents.shape[0], :] = parents
+        new_population[parents.shape[0]: , :] = offspring_mutation
+
+    fitness = cal_pop_fitness(equation_inputs, new_population)
+    best_match_idx = np.where(fitness == np.max(fitness))
+
+    print("\nMejor solucion :\n", new_population[best_match_idx, :])
+    print("Mejor aptitud:\n", fitness[best_match_idx])
+
+if __name__ == "__main__":
+    main()
