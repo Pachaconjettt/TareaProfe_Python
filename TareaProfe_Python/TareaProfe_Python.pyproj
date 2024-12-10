@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>f9102df1-e64e-4ffe-8709-d505f8fa3e9b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Novena Semana\Novena Semana.py</StartupFile>
+    <StartupFile>Decima Semana\Decima semana.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Cuarta Semana\Cuarta_Semana.py" />
+    <Compile Include="Decima Semana\Decima semana.py" />
     <Compile Include="Novena Semana\Novena Semana.py" />
     <Compile Include="Octava semana\Octava Semana.py">
       <SubType>Code</SubType>
@@ -39,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cuarta Semana\" />
+    <Folder Include="Decima Semana\" />
     <Folder Include="Novena Semana\" />
     <Folder Include="Octava semana\" />
     <Folder Include="Septima semana\" />
