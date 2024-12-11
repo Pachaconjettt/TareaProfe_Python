@@ -1,1 +1,3 @@
-# Trabajo hecho para practicar Python de parte del profesor Juan De Dios Murillo
+# Practica Python
+## Trabajo hecho para aprender la sintaxis y tener mejor manejo en este lenguaje
+
